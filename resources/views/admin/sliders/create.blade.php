@@ -5,7 +5,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-file"></i> {{ $title }}</h1>
+            <h1><i class="fa fa-sliders"></i> {{ $title }}</h1>
         </div>
     </div>
     @if(Session::has('success'))
@@ -25,8 +25,8 @@
     @endif   
     <div class="row user">       
         <div class="col-md-12">
-            <a href="{{ route('admin.pages') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Back To Pages</a>
-            <form action="{{ route('admin.pages.store') }}" method="POST" role="form" enctype="multipart/form-data">
+            <a href="{{ route('admin.sliders') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Back To Sliders</a>
+            <form action="{{ route('admin.sliders.store') }}" method="POST" role="form" enctype="multipart/form-data">
                 @csrf
                 <div class="tile">  
                     <div class="row">
@@ -38,28 +38,30 @@
                             @enderror                                  
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="control-label" for="slug">Slug</label>
-                            <input class="form-control" type="text" placeholder="Enter Slug" id="slug" name="slug" value="{{ old('slug') }}"/>
-                            @error('slug')
+                            <label class="control-label" for="heaading_first">Heading First</label>
+                            <input class="form-control" type="text" placeholder="Enter Heading First" id="heaading_first" name="heaading_first" value="{{ old('heaading_first') }}"/>
+                            @error('heaading_first')
                                 <div class="alert alert-danger error">{{ $message }}</div>
                             @enderror
-                        </div>
+                        </div>  
                         <div class="form-group col-md-6">
-                            <label class="control-label" for="Parent"> Parent</label>
-                            <select class="form-control" id="parent" name="parent" value="{{ old('parent') }}"/>
-                                <option value="">Select Parent</option>
-                                @foreach($parentPage as $page)                                
-                                    <option value="{{ $page->id }}">{{ $page->name }}</option>
-                                @endforeach 
-                            </select>
-                            @error('parent')
+                            <label class="control-label" for="heaading_second">Heading Second</label>
+                            <input class="form-control" type="text" placeholder="Enter Heading Second" id="heaading_second" name="heaading_second" value="{{ old('heaading_second') }}"/>
+                            @error('heaading_second')
                                 <div class="alert alert-danger error">{{ $message }}</div>
                             @enderror
-                        </div>
+                        </div> 
+                        <div class="form-group col-md-6">
+                            <label class="control-label" for="heaading_third">Heading Third</label>
+                            <input class="form-control" type="text" placeholder="Enter Heading Third" id="heaading_third" name="heaading_third" value="{{ old('heaading_third') }}"/>
+                            @error('heaading_third')
+                                <div class="alert alert-danger error">{{ $message }}</div>
+                            @enderror
+                        </div>                       
                         <div class="form-group col-md-5">
-                            <label class="control-label">Banner</label>                             
-                            <input class="form-control" type="file" name="banner" onchange="loadFile(event,'logoImg')"/>
-                            @error('banner')
+                            <label class="control-label">Image</label>                             
+                            <input class="form-control" type="file" name="image" onchange="loadFile(event,'logoImg')"/>
+                            @error('image')
                                 <div class="alert alert-danger error">{{ $message }}</div>
                             @enderror
                         </div>
@@ -72,37 +74,27 @@
                             @error('alt')
                                 <div class="alert alert-danger error">{{ $message }}</div>
                             @enderror                                  
-                        </div>
-                        <div cl
+                        </div>                        
                         <div class="form-group col-md-6">
-                            <label class="control-label" for="meta_title">Meta Title</label>
-                            <textarea class="form-control" rows="1" placeholder="Enter Meta Title" id="meta_title" name="meta_title">{{ old('meta_title') }}</textarea>
-                            @error('meta_title')
+                            <label class="control-label" for="link_lable">Link Lable </label>
+                            <textarea class="form-control" rows="1" placeholder="Enter Lable" id="link_lable" name="link_lable">{{ old('link_lable') }}</textarea>
+                            @error('lable')
                                 <div class="alert alert-danger error">{{ $message }}</div>
                             @enderror
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label class="control-label" for="meta_description">Meta Description</label>
-                            <textarea class="form-control" rows="4" placeholder="Enter seo meta description for store" id="meta_description"
-                                name="meta_description" >{{ old('meta_description') }}</textarea>
-                            @error('meta_description')
-                                <div class="alert alert-danger error">{{ $message }}</div>
-                            @enderror    
                         </div> 
-                        <div class="form-group col-md-12">
-                            <label class="control-label" for="description">Description</label>
-                            <textarea class="form-control" rows="4" placeholder="Enter  description" id="description"
-                                name="description" >{{ old('description') }}</textarea>
-                            @error('description')
+                        <div class="form-group col-md-6">
+                            <label class="control-label" for="link">Link</label>
+                            <textarea class="form-control" rows="1" placeholder="Enter Button Link" id="link" name="link">{{ old('link') }}</textarea>
+                            @error('link')
                                 <div class="alert alert-danger error">{{ $message }}</div>
-                            @enderror    
-                        </div>                        
+                            @enderror
+                        </div>                                             
                     </div>  
                 </div>
                 <div class="tile-footer">
                     <div class="row d-print-none mt-2">
                         <div class="col-12 text-right">
-                            <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Update Settings</button>
+                            <button class="btn btn-success" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Submit</button>
                         </div>
                     </div>
                 </div>    
@@ -118,8 +110,4 @@
             output.src = URL.createObjectURL(event.target.files[0]);
         };
     </script>
-     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-     <script>
-            CKEDITOR.replace( 'description' );
-        </script>
 @endpush

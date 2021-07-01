@@ -5,7 +5,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-file"></i> {{ $title }}</h1>
+            <h1><i class="fa fa-sliders"></i> {{ $title }}</h1>
         </div>
     </div>
     
@@ -28,7 +28,7 @@
     
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ route('admin.pages.create') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Add New</a>
+            <a href="{{ route('admin.sliders.create') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Add New</a>
           <div class="tile">
             <div class="tile-body">
               <table class="table table-hover table-bordered" id="sampleTable">
@@ -36,29 +36,29 @@
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Banner</th>
-                    <th>Slug</th>
-                    <th>Parent</th>
+                    <th>Image</th>
+                    <th>Heading First</th>
+                    <th>Heading Second</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
 
-                    @foreach($pages as $page)
+                    @foreach($sliders as $slider)
                     <tr>
-                        <td>{{ $page->id }}</td>
-                        <td>{{ $page->name }}</td>
+                        <td>{{ $slider->id }}</td>
+                        <td>{{ $slider->name }}</td>
                         <td>
-                            @if ($page->banner != null)
-                                <img src="{{ asset('storage/uploads/banner/'.$page->banner) }}" id="logoImg" style="width: 80px; height: auto;">
+                            @if ($slider->image != null)
+                                <img src="{{ asset('storage/uploads/sliders/'.$slider->image) }}" id="logoImg" style="width: 80px; height: 80;">
                             @endif  
                         </td>
-                        <td>{{ $page->slug }}</td>
-                        <td>{{ $page->parent }}</td>
+                        <td>{{ $slider->heaading_first }}</td>
+                        <td>{{ $slider->heaading_second }}</td>
                         <td>
-                            <a href="{{ route('admin.pages.show',['id'=>$page->id]) }}" class="btn btn-primary text-white" type="button">View</a>
-                            <a href="{{ route('admin.pages.edit',['id'=>$page->id]) }}" class="btn btn-secondary text-white" type="button">Edit</a>
-                            <a href="{{ route('admin.pages.delete',['id'=>$page->id]) }}" class="btn btn-danger text-white" type="button">Delete</a>
+                            <a href="{{ route('admin.sliders.show',['id'=>$slider->id]) }}" class="btn btn-primary text-white" type="button">View</a>
+                            <a href="{{ route('admin.sliders.edit',['id'=>$slider->id]) }}" class="btn btn-secondary text-white" type="button">Edit</a>
+                            <a href="{{ route('admin.sliders.delete',['id'=>$slider->id]) }}" class="btn btn-danger text-white" type="button">Delete</a>
                         </td>
                     </tr>
                     @endforeach 

@@ -11,25 +11,26 @@
     
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ route('admin.pages') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Back To Pages</a>
+            <a href="{{ route('admin.sliders') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Back To Sliders</a>
           <div class="tile">
             <div class="tile-body">
               <table class="table table-hover table-bordered" id="sampleTable">
                 <tbody>
-                    <tr><th>ID</th><td>{{ $pages->id }}</td></tr>
-                    <tr> <th>Name</th><td>{{ $pages->name }}</td></tr>
-                    <tr><th>Banner</th>
+                    <tr><th>ID</th><td>{{ $sliders->id }}</td></tr>
+                    <tr> <th>Name</th><td>{{ $sliders->name }}</td></tr>
+                    <tr><th>Image</th>
                         <td>
-                            @if ($pages->banner != null)
-                                <img src="{{ asset('storage/uploads/banner/'.$pages->banner) }}" id="logoImg" style="width: 80px; height: auto;">
+                            @if ($sliders->image != null)
+                                <img src="{{ asset('storage/uploads/sliders/'.$sliders->image) }}" id="logoImg" style="width: 80px; height: auto;">
                             @endif 
                         </td>
                     </tr>
-                    <tr><th>Slug</th><td>{{ $pages->slug }}</td></tr>
-                    <tr><th>Parent</th><td>{{ $pages->parent }}</td></tr>
-                    <tr><th>Meta Title</th><td>{{ $pages->meta_title }}</td></tr>                  
-                    <tr><th>Meta Descriptipn</th><td>{{ $pages->meta_description }}</td></tr>                  
-                    <tr><th>Descriptipn</th><td>{!! $pages->description !!}</td></tr>                  
+                    <tr><th>Alt</th><td>{{ $sliders->alt }}</td></tr>
+                    <tr><th>Heading First</th><td>{{ $sliders->heaading_first }}</td></tr>
+                    <tr><th>Heading Second</th><td>{{ $sliders->heaading_second }}</td></tr>                  
+                    <tr><th>Heading Third</th><td>{{ $sliders->heaading_third }}</td></tr>                  
+                    <tr><th>Button Link</th><td>{{ $sliders->link }}</td></tr>                  
+                    <tr><th>Button Lable</th><td>{{ $sliders->link_lable }}</td></tr>                  
                 </tbody>
               </table>
             </div>

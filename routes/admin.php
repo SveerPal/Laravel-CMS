@@ -2,6 +2,8 @@
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\SlidersController;
+use App\Http\Controllers\Admin\TestimonialsController;
 
 Auth::routes();
 Route::group(['prefix'  =>  'admin'], function () {
@@ -32,22 +34,22 @@ Route::group(['prefix'  =>  'admin'], function () {
 		Route::get('/pages/delete/{id}', [PagesController::class, 'destroy'])->name('admin.pages.delete');
 
 		//Sliders
-		Route::get('/sliders', [PagesController::class, 'index'])->name('admin.sliders');
-		Route::get('/sliders/show/{id}', [PagesController::class, 'show'])->name('admin.sliders.show');
-		Route::get('/sliders/create', [PagesController::class, 'create'])->name('admin.sliders.create');
-		Route::post('/sliders/store', [PagesController::class, 'store'])->name('admin.sliders.store');	
-		Route::get('/sliders/edit/{id}', [PagesController::class, 'edit'])->name('admin.sliders.edit');
-		Route::post('/sliders/update/{id}', [PagesController::class, 'update'])->name('admin.sliders.update');
-		Route::get('/sliders/delete/{id}', [PagesController::class, 'destroy'])->name('admin.sliders.delete');
+		Route::get('/sliders', [SlidersController::class, 'index'])->name('admin.sliders');
+		Route::get('/sliders/show/{id}', [SlidersController::class, 'show'])->name('admin.sliders.show');
+		Route::get('/sliders/create', [SlidersController::class, 'create'])->name('admin.sliders.create');
+		Route::post('/sliders/store', [SlidersController::class, 'store'])->name('admin.sliders.store');	
+		Route::get('/sliders/edit/{id}', [SlidersController::class, 'edit'])->name('admin.sliders.edit');
+		Route::post('/sliders/update/{id}', [SlidersController::class, 'update'])->name('admin.sliders.update');
+		Route::get('/sliders/delete/{id}', [SlidersController::class, 'destroy'])->name('admin.sliders.delete');
 
 		//Testimonials
-		Route::get('/testimonials', [PagesController::class, 'index'])->name('admin.testimonials');
-		Route::get('/testimonials/show/{id}', [PagesController::class, 'show'])->name('admin.testimonials.show');
-		Route::get('/testimonials/create', [PagesController::class, 'create'])->name('admin.testimonials.create');
-		Route::post('/testimonials/store', [PagesController::class, 'store'])->name('admin.testimonials.store');	
-		Route::get('/testimonials/edit/{id}', [PagesController::class, 'edit'])->name('admin.testimonials.edit');
-		Route::post('/testimonials/update/{id}', [PagesController::class, 'update'])->name('admin.testimonials.update');
-		Route::get('/testimonials/delete/{id}', [PagesController::class, 'destroy'])->name('admin.testimonials.delete');
+		Route::get('/testimonials', [TestimonialsController::class, 'index'])->name('admin.testimonials');
+		Route::get('/testimonials/show/{id}', [TestimonialsController::class, 'show'])->name('admin.testimonials.show');
+		Route::get('/testimonials/create', [TestimonialsController::class, 'create'])->name('admin.testimonials.create');
+		Route::post('/testimonials/store', [TestimonialsController::class, 'store'])->name('admin.testimonials.store');	
+		Route::get('/testimonials/edit/{id}', [TestimonialsController::class, 'edit'])->name('admin.testimonials.edit');
+		Route::post('/testimonials/update/{id}', [TestimonialsController::class, 'update'])->name('admin.testimonials.update');
+		Route::get('/testimonials/delete/{id}', [TestimonialsController::class, 'destroy'])->name('admin.testimonials.delete');
 
 		//Clients
 		Route::get('/clients', [PagesController::class, 'index'])->name('admin.clients');

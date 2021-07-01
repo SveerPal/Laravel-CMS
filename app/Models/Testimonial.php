@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class Testimonial extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name','heaading_first','heaading_second','heaading_third','image','alt','link','link_lable'
+        'name','designation','comment','image','alt'
     ];
     /**
      * The attributes that should be hidden for arrays.

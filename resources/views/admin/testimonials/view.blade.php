@@ -5,31 +5,29 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-cogs"></i> {{ $title }}</h1>
+            <h1><i class="fa fa-quote-left"></i> {{ $title }}</h1>
         </div>
     </div>
     
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ route('admin.pages') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Back To Pages</a>
+            <a href="{{ route('admin.testimonials') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Back To Testimonials</a>
           <div class="tile">
             <div class="tile-body">
               <table class="table table-hover table-bordered" id="sampleTable">
                 <tbody>
-                    <tr><th>ID</th><td>{{ $pages->id }}</td></tr>
-                    <tr> <th>Name</th><td>{{ $pages->name }}</td></tr>
-                    <tr><th>Banner</th>
+                    <tr><th>ID</th><td>{{ $testimonials->id }}</td></tr>
+                    <tr> <th>Name</th><td>{{ $testimonials->name }}</td></tr>
+                    <tr><th>Image</th>
                         <td>
-                            @if ($pages->banner != null)
-                                <img src="{{ asset('storage/uploads/banner/'.$pages->banner) }}" id="logoImg" style="width: 80px; height: auto;">
+                            @if ($testimonials->image != null)
+                                <img src="{{ asset('storage/uploads/testimonials/'.$testimonials->image) }}" id="logoImg" style="width: 80px; height: auto;">
                             @endif 
                         </td>
                     </tr>
-                    <tr><th>Slug</th><td>{{ $pages->slug }}</td></tr>
-                    <tr><th>Parent</th><td>{{ $pages->parent }}</td></tr>
-                    <tr><th>Meta Title</th><td>{{ $pages->meta_title }}</td></tr>                  
-                    <tr><th>Meta Descriptipn</th><td>{{ $pages->meta_description }}</td></tr>                  
-                    <tr><th>Descriptipn</th><td>{!! $pages->description !!}</td></tr>                  
+                    <tr><th>Alt</th><td>{{ $testimonials->alt }}</td></tr>
+                    <tr><th>Designation</th><td>{{ $testimonials->designation }}</td></tr>                
+                    <tr><th>Comment</th><td>{!! $testimonials->comment !!}</td></tr>                  
                 </tbody>
               </table>
             </div>
