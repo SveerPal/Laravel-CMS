@@ -28,8 +28,8 @@
             </a>
         </li>
         <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.clients' ? 'active' : '' }}" href="{{ route('admin.clients') }}"><i class="app-menu__icon fa fa-user"></i>
-                <span class="app-menu__label">Clients</span>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.clienteles' ? 'active' : '' }}" href="{{ route('admin.clienteles') }}"><i class="app-menu__icon fa fa-user"></i>
+                <span class="app-menu__label">Clienteles</span>
             </a>
         </li>
         <li>

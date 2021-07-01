@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\SlidersController;
 use App\Http\Controllers\Admin\TestimonialsController;
+use App\Http\Controllers\Admin\ClientelesController;
 
 Auth::routes();
 Route::group(['prefix'  =>  'admin'], function () {
@@ -51,14 +52,14 @@ Route::group(['prefix'  =>  'admin'], function () {
 		Route::post('/testimonials/update/{id}', [TestimonialsController::class, 'update'])->name('admin.testimonials.update');
 		Route::get('/testimonials/delete/{id}', [TestimonialsController::class, 'destroy'])->name('admin.testimonials.delete');
 
-		//Clients
-		Route::get('/clients', [PagesController::class, 'index'])->name('admin.clients');
-		Route::get('/clients/show/{id}', [PagesController::class, 'show'])->name('admin.clients.show');
-		Route::get('/clients/create', [PagesController::class, 'create'])->name('admin.clients.create');
-		Route::post('/clients/store', [PagesController::class, 'store'])->name('admin.clients.store');	
-		Route::get('/clients/edit/{id}', [PagesController::class, 'edit'])->name('admin.clients.edit');
-		Route::post('/clients/update/{id}', [PagesController::class, 'update'])->name('admin.clients.update');
-		Route::get('/clients/delete/{id}', [PagesController::class, 'destroy'])->name('admin.clients.delete');
+		//Clienteles
+		Route::get('/clienteles', [ClientelesController::class, 'index'])->name('admin.clienteles');
+		Route::get('/clienteles/show/{id}', [ClientelesController::class, 'show'])->name('admin.clienteles.show');
+		Route::get('/clienteles/create', [ClientelesController::class, 'create'])->name('admin.clienteles.create');
+		Route::post('/clienteles/store', [ClientelesController::class, 'store'])->name('admin.clienteles.store');	
+		Route::get('/clienteles/edit/{id}', [ClientelesController::class, 'edit'])->name('admin.clienteles.edit');
+		Route::post('/clienteles/update/{id}', [ClientelesController::class, 'update'])->name('admin.clienteles.update');
+		Route::get('/clienteles/delete/{id}', [ClientelesController::class, 'destroy'])->name('admin.clienteles.delete');
 
 		//Newsletters
 		Route::get('/newsletters', [PagesController::class, 'index'])->name('admin.newsletters');

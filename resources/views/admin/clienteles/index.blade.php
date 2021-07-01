@@ -5,7 +5,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-file"></i> {{ $title }}</h1>
+            <h1><i class="fa fa-user"></i> {{ $title }}</h1>
         </div>
     </div>
     
@@ -28,7 +28,7 @@
     
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ route('admin.pages.create') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Add New</a>
+            <a href="{{ route('admin.clienteles.create') }}" class="btn btn-primary text-white mr-1 mb-4" type="button">Add Clientele</a>
           <div class="tile">
             <div class="tile-body">
               <table class="table table-hover table-bordered" id="sampleTable">
@@ -36,29 +36,29 @@
                   <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Banner</th>
-                    <th>Slug</th>
-                    <th>Parent</th>
+                    <th>Image</th>
+                    <th>Alt</th>
+                    <th>Link</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
 
-                    @foreach($pages as $page)
+                    @foreach($clienteles as $clientele)
                     <tr>
-                        <td>{{ $page->id }}</td>
-                        <td>{{ $page->name }}</td>
+                        <td>{{ $clientele->id }}</td>
+                        <td>{{ $clientele->name }}</td>
                         <td>
-                            @if ($page->banner != null)
-                                <img src="{{ asset('storage/uploads/banner/'.$page->banner) }}" id="logoImg" style="width: 80px; height: auto;">
+                            @if ($clientele->image != null)
+                                <img src="{{ asset('storage/uploads/clienteles/'.$clientele->image) }}" id="logoImg" style="width: 80px; height: auto;">
                             @endif  
                         </td>
-                        <td>{{ $page->slug }}</td>
-                        <td>{{ $page->parent }}</td>
+                        <td>{{ $clientele->alt }}</td>
+                        <td>{{ $clientele->link }}</td>
                         <td>
-                            <a href="{{ route('admin.pages.show',['id'=>$page->id]) }}" class="btn btn-primary text-white" type="button">View</a>
-                            <a href="{{ route('admin.pages.edit',['id'=>$page->id]) }}" class="btn btn-secondary text-white" type="button">Edit</a>
-                            <a href="{{ route('admin.pages.delete',['id'=>$page->id]) }}" class="btn btn-danger text-white" type="button">Delete</a>
+                            <!-- <a href="{{ route('admin.clienteles.show',['id'=>$clientele->id]) }}" class="btn btn-primary text-white" type="button">View</a> -->
+                            <a href="{{ route('admin.clienteles.edit',['id'=>$clientele->id]) }}" class="btn btn-secondary text-white" type="button">Edit</a>
+                            <a href="{{ route('admin.clienteles.delete',['id'=>$clientele->id]) }}" class="btn btn-danger text-white" type="button">Delete</a>
                         </td>
                     </tr>
                     @endforeach 
