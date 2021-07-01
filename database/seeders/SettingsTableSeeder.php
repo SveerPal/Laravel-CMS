@@ -24,6 +24,30 @@ class SettingsTableSeeder extends Seeder
             'value'                     =>  'admin@admin.com',
         ],
         [
+            'key'                       =>  'default_phone',
+            'value'                     =>  '7636438783723',
+        ],
+        [
+            'key'                       =>  'default_address',
+            'value'                     =>  'B-12 New Ashok Nagar',
+        ],
+        [
+            'key'                       =>  'email',
+            'value'                     =>  'admin2@admin.com',
+        ],
+        [
+            'key'                       =>  'phone',
+            'value'                     =>  '22222222222',
+        ],
+        [
+            'key'                       =>  'address',
+            'value'                     =>  'B-1222 New Ashok Nagar',
+        ],
+        [
+            'key'                       =>  'map',
+            'value'                     =>  '',
+        ],
+        [
             'key'                       =>  'currency_code',
             'value'                     =>  'INR',
         ],
